@@ -1,0 +1,46 @@
+{
+  "name": "grunt-critical-assets-html",
+  "description": "Finds all the css/js/image links and put inline in the HTML",
+  "version": "1.0.0",
+  "homepage": "https://github.com/fabioalmeida100/grunt-critical-assets-html.git",
+  "author": {
+    "name": "Fábio Almeida",
+    "email": "fabioalmeida@fabiodeveloper.com",
+    "url": "https://github.com/fabioalmeida100"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/fabioalmeida100/grunt-critical-assets-html.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fabioalmeida100/grunt-critical-assets-html/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/fabioalmeida100/grunt-critical-assets-html/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "Gruntfile.js",
+  "engines": {
+    "node": ">= 8.0.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "dependencies": {
+    "cheerio": "~0.10.8"
+  },
+  "devDependencies": {
+    "grunt": "^1.1.0",
+    "grunt-contrib-clean": "^1.1.0",
+    "grunt-run": "^0.8.1",
+    "semistandard": "^14.2.0"
+  },
+  "keywords": [
+    "gruntplugin",
+    "embed",
+    "stylesheet",
+    "javascript"
+  ]
+}
