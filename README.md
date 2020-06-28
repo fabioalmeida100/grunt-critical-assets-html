@@ -79,7 +79,7 @@ A with option to minify CSS in `index2.html` and other with default options.
 
 `ignoreImg:` default "false" try insert inline image in base64 in the HTML, if "true" will ignore the images.
 
-`minifyCSS:` default "false", if "true" will do clean in your CSS.
+`minifyCSS:` default "false", if "true" will do a clean in your CSS.
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
