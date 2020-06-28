@@ -41,7 +41,7 @@ For register the task use `grunt.registerTask('default', ['critical_assets_html'
 
 ### Multiples HTML with different options
 
-You can use different options run various different sub-taks, for example:
+You can use different options run various sub-taks, for example:
 
 ```js
 grunt.initConfig({
@@ -70,7 +70,7 @@ grunt.initConfig({
   },
 });
 ```
-
+A with option to minify CSS in `index2.html` and other with default options.
 
 ### Options
 `ignoreJs:` default "false" try insert inline javascript in the HTML, if "true" will ignore the javascripts.
