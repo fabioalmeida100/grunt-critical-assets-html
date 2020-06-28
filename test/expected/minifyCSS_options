@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>HTML of the Test</title>
+    <style>h1{font-size:2em;color:red}</style>
+  </head>
+  <body>
+    <p>Hello world! This is a test.</p>
+    <h1>Test assets inline</h1>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAASCAIAAADQR7l6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAnSURBVDhPY/hPMRi0RjDgBVBFSGDUCAQYNQIBaGMEqWDUCBj4/x8AwQ10tkf3iK4AAAAASUVORK5CYII=">
+
+    <script>window.alert('Hello world!');
+</script>
+  </body>
+</html>

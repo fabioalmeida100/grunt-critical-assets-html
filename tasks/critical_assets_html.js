@@ -11,6 +11,7 @@ module.exports = function (grunt) {
 
   var cheerio = require('cheerio');
   var path = require('path');
+  var CleanCSS = require('clean-css');
   const hasScheme = /^[a-z0-9]+:\/\//;
 
   grunt.registerMultiTask('critical_assets_html', 'Your html simple for WEB', function () {
@@ -19,10 +20,11 @@ module.exports = function (grunt) {
       cssDir: '',
       ignoreJs: false,
       ignoreCSS: false,
-      ignoreImg: false
+      ignoreImg: false,
+      minifyCSS: false
     });
 
-    var processInput = function (i) { 
+    var processMinifyCSS = function (i) { 
       return i; 
     };
 
@@ -36,6 +38,9 @@ module.exports = function (grunt) {
       grunt.log.writeln('Reading files: ' + path.resolve(filePairSrc));
 
       if (!options.ignoreCSS) {
+        if (options.minifyCSS)
+          processMinifyCSS = minifyCSS;        
+
         $('link[rel="stylesheet"]').each(function () {
           var style = $(this).attr('href');
           if (!style) { 
@@ -61,7 +66,7 @@ module.exports = function (grunt) {
           var filePath = 
             (style.substr(0, 1) === '/') ? path.resolve(options.cssDir, style.substr(1)) : path.join(path.dirname(filePairSrc), style);
           grunt.log.writeln(('Including CSS: ').cyan + filePath);
-          $(this).replaceWith('<style>' + processInput(grunt.file.read(filePath)) + '</style>');
+          $(this).replaceWith('<style>' + processMinifyCSS(grunt.file.read(filePath)) + '</style>');
         });
       }
     
@@ -88,7 +93,7 @@ module.exports = function (grunt) {
           var filePath = (script.substr(0, 1) === '/') ? path.resolve(options.jsDir, script.substr(1)) : path.join(path.dirname(filePairSrc), script);
           grunt.log.writeln(('Including JS: ').cyan + filePath);
   
-          $(this).replaceWith('<script>' + processInput(grunt.file.read(filePath)) + '</script>');
+          $(this).replaceWith('<script>' + grunt.file.read(filePath) + '</script>');
         });
       }
              
@@ -115,6 +120,13 @@ module.exports = function (grunt) {
       grunt.file.write(path.resolve(filePair.dest), $.html());
       grunt.log.writeln(('Created ').green + path.resolve(filePair.dest));
     });
+
+
+    function minifyCSS(input) {
+      grunt.log.writeln('Minify CSS in soon...');
+      let options = {}; 
+      return new CleanCSS(options).minify(input).styles;
+    };
 
     function getAttributes (el) {
       var attributes = {};

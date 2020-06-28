@@ -15,15 +15,26 @@ module.exports = function (grunt) {
       tests: ['tmp']
     },       
     critical_assets_html: {
-      options: {
-        ignoreJs: false,
-        ignoreCss: false,
-        ignoreImg: false
-      },
-      all: {
+      default: {
+        options: {
+          ignoreJs: false,
+          ignoreCss: false,
+          ignoreImg: false
+        },
         files: {
             'tmp/default_options': 'test/fixtures/index.html'
-          }
+        }        
+      },
+      minifyCSS: {
+        options: {
+          ignoreJs: false,
+          ignoreCss: false,
+          ignoreImg: false,
+          minifyCSS: true
+        },
+        files: {
+            'tmp/minifyCSS_options': 'test/fixtures/index.html'
+          }        
       }
     },
     // Run unit tests.
@@ -41,5 +52,5 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-run');
 
-  grunt.registerTask('test', ['clean', 'critical_assets_html', 'run']);
+  grunt.registerTask('test', ['clean', 'critical_assets_html:default', 'critical_assets_html:minifyCSS', 'run']);
 };

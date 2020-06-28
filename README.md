@@ -39,5 +39,47 @@ grunt.initConfig({
 ```
 For register the task use `grunt.registerTask('default', ['critical_assets_html'])`
 
+### Multiples HTML with different options
+
+You can use different options run various different sub-taks, for example:
+
+```js
+grunt.initConfig({
+  critical_assets_html: {
+      default: {
+        options: {
+          ignoreJs: false,
+          ignoreCss: false,
+          ignoreImg: false
+        },
+        files: {
+            'tmp/default_options': 'test/fixtures/index.html'
+        }        
+      },
+      minifyCSS: {
+        options: {
+          ignoreJs: false,
+          ignoreCss: false,
+          ignoreImg: false,
+          minifyCSS: true
+        },
+        files: {
+            'tmp/minifyCSS_options': 'test/fixtures/index2.html'
+          }        
+      }
+  },
+});
+```
+
+
+### Options
+`ignoreJs:` default "false" try insert inline javascript in the HTML, if "true" will ignore the javascripts.
+
+`ignoreCss:` default "false" try insert inline CSS in the HTML, if "true" will ignore the CSS.
+
+`ignoreImg:` default "false" try insert inline image in base64 in the HTML, if "true" will ignore the images.
+
+`minifyCSS:` default "false", if "true" will do clean in your CSS.
+
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
