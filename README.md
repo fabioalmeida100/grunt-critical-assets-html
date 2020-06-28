@@ -31,7 +31,7 @@ grunt.initConfig({
     },
     all: {
       files: {
-          'dist/html-assets-inline': 'test/index.html'
+          'dist/html-assets-inline.html': 'test/index.html'
         }
     }
   },
@@ -53,7 +53,7 @@ grunt.initConfig({
           ignoreImg: false
         },
         files: {
-            'tmp/default_options': 'test/fixtures/index.html'
+            'tmp/default_options.html': 'test/fixtures/index.html'
         }        
       },
       minifyCSS: {
@@ -64,7 +64,7 @@ grunt.initConfig({
           minifyCSS: true
         },
         files: {
-            'tmp/minifyCSS_options': 'test/fixtures/index2.html'
+            'tmp/minifyCSS_options.html': 'test/fixtures/index2.html'
           }        
       }
   },
