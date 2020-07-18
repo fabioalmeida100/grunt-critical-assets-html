@@ -1,5 +1,7 @@
 # grunt-critical-assets-html
 
+ ![Status build](https://travis-ci.com/fabioalmeida100/grunt-critical-assets-html.svg?branch=master)
+
 > Finds all the css/js/image links and put inline in the HTML
 
 ## Getting Started
