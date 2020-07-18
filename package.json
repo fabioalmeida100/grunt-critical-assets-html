@@ -39,6 +39,5 @@
     "embed",
     "stylesheet",
     "javascript"
-  ],
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" }
+  ]
 }

@@ -73,11 +73,11 @@ grunt.initConfig({
 A with option to minify CSS in `index2.html` and other with default options.
 
 ### Options
-`ignoreJs:` default "false" try insert inline javascript in the HTML, if "true" will ignore the javascripts.
+`ignoreJs:` default "false" try insert inline javascript in the HTML, if "true" will be ignore the javascripts.
 
-`ignoreCss:` default "false" try insert inline CSS in the HTML, if "true" will ignore the CSS.
+`ignoreCss:` default "false" try insert inline CSS in the HTML, if "true" will be ignore the CSS.
 
-`ignoreImg:` default "false" try insert inline image in base64 in the HTML, if "true" will ignore the images.
+`ignoreImg:` default "false" try insert inline image in base64 in the HTML, if "true" will be ignore the images.
 
 `minifyCSS:` default "false", if "true" will do a minify in your CSS.
 
