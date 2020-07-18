@@ -14,11 +14,6 @@
     <h1>Test assets inline</h1>
     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAASCAIAAADQR7l6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAnSURBVDhPY/hPMRi0RjDgBVBFSGDUCAQYNQIBaGMEqWDUCBj4/x8AwQ10tkf3iK4AAAAASUVORK5CYII=">
 
-    <script>window.alert('Hello world!');
-var num1 = 1;
-var num2 = 2;
-var result = null;
-result = num1 + num2;
-</script>
+    <script>window.alert("Hello world!");var num1=1,num2=2,result=null,result=num1+num2;</script>
   </body>
 </html>

@@ -13,6 +13,9 @@ module.exports = function (grunt) {
   var path = require('path');
   var CleanCSS = require('clean-css');
   const hasScheme = /^[a-z0-9]+:\/\//;
+  var UglifyJS = require('uglify-js');
+  var processMinifyCSS = null;
+  var processMinifyJs = null;
 
   grunt.registerMultiTask('critical_assets_html', 'Your html simple for WEB', function () {
     var options = this.options({
@@ -21,12 +24,11 @@ module.exports = function (grunt) {
       ignoreJs: false,
       ignoreCSS: false,
       ignoreImg: false,
-      minifyCSS: false
+      minifyCSS: false,
+      minifyJs: false
     });
 
-    var processMinifyCSS = function (i) { 
-      return i; 
-    };
+    initFunctions();
 
     this.files.forEach(function (filePair) {
       if (filePair.src.length === 0) { 
@@ -39,7 +41,7 @@ module.exports = function (grunt) {
 
       if (!options.ignoreCSS) {
         if (options.minifyCSS)
-          processMinifyCSS = minifyCSS;        
+          processMinifyCSS = minifyCSS;
 
         $('link[rel="stylesheet"]').each(function () {
           var style = $(this).attr('href');
@@ -69,9 +71,13 @@ module.exports = function (grunt) {
           $(this).replaceWith('<style>' + processMinifyCSS(grunt.file.read(filePath)) + '</style>');
         });
       }
-    
-          
+              
       if (!options.ignoreJs) {
+        if (options.minifyJs) {
+
+          processMinifyJs = minifyJs; 
+        }
+
         $('script').each(function () {
           var script = $(this).attr('src');
           if (!script) { 
@@ -93,11 +99,10 @@ module.exports = function (grunt) {
           var filePath = (script.substr(0, 1) === '/') ? path.resolve(options.jsDir, script.substr(1)) : path.join(path.dirname(filePairSrc), script);
           grunt.log.writeln(('Including JS: ').cyan + filePath);
   
-          $(this).replaceWith('<script>' + grunt.file.read(filePath) + '</script>');
+          $(this).replaceWith('<script>' + processMinifyJs(grunt.file.read(filePath)) + '</script>');
         });
       }
-             
-      
+               
       if (!options.ignoreImg) {
         $('img').each(function () {
           var src = $(this).attr('src');
@@ -121,12 +126,26 @@ module.exports = function (grunt) {
       grunt.log.writeln(('Created ').green + path.resolve(filePair.dest));
     });
 
+    function initFunctions() {
+        processMinifyCSS = function (i) { 
+          return i; 
+        };
+    
+        processMinifyJs = function (i) { 
+          return i; 
+        };
+    }
 
-    function minifyCSS(input) {
+    function minifyCSS(css) {
       grunt.log.writeln('Minify CSS in soon...');
       let options = {}; 
-      return new CleanCSS(options).minify(input).styles;
+      return new CleanCSS(options).minify(css).styles;
     };
+
+    function minifyJs(javascript) {
+        grunt.log.writeln('Minify Js in soon...');
+        return UglifyJS.minify(javascript).code;      
+    }
 
     function getAttributes (el) {
       var attributes = {};
