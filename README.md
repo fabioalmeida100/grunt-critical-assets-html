@@ -66,11 +66,23 @@ grunt.initConfig({
         files: {
             'tmp/minifyCSS_options.html': 'test/fixtures/index2.html'
           }        
+      },
+      minifyJs: {
+        options: {
+          ignoreJs: false,
+          ignoreCss: false,
+          ignoreImg: false,
+          minifyCSS: false,
+          minifyJs: true
+        },
+        files: {
+            'tmp/minifyJs_options.html': 'test/fixtures/index3.html'
+          }        
       }
   },
 });
 ```
-A with option to minify CSS in `index2.html` and other with default options.
+A with option to minify CSS/Js in `index2.html/index3.html` and other with default options.
 
 ### Options
 `ignoreJs:` default "false" try insert inline javascript in the HTML, if "true" will be ignore the javascripts.
@@ -79,7 +91,9 @@ A with option to minify CSS in `index2.html` and other with default options.
 
 `ignoreImg:` default "false" try insert inline image in base64 in the HTML, if "true" will be ignore the images.
 
-`minifyCSS:` default "false", if "true" will do a minify in your CSS.
+`minifyCSS:` default "false", if "true" will be minified the CSS.
+
+`minifyJs:` default "false", if "true" will be minified the JavaScript.
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
