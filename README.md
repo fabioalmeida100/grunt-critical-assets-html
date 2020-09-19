@@ -2,14 +2,14 @@
 
  ![Status build](https://travis-ci.com/fabioalmeida100/grunt-critical-assets-html.svg?branch=master)
 
-> Finds all the css/js/image links and put inline in the HTML
+> Finds all css/js/image links and put inline in HTML
 
 ## Getting Started
 
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
 
 ```shell
-npm install grunt-critical-assets-html--save-dev
+npm install grunt-critical-assets-html --save-dev
 ```
 
 Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:
@@ -87,11 +87,11 @@ grunt.initConfig({
 A with option to minify CSS/Js in `index2.html/index3.html` and other with default options.
 
 ### Options
-`ignoreJs:` default "false" try insert inline javascript in the HTML, if "true" will be ignore the javascripts.
+`ignoreJs:` default "false" try insert inline javascript in HTML, if "true" will be ignore javascripts.
 
-`ignoreCss:` default "false" try insert inline CSS in the HTML, if "true" will be ignore the CSS.
+`ignoreCss:` default "false" try insert inline CSS in HTML, if "true" will be ignore CSS.
 
-`ignoreImg:` default "false" try insert inline image in base64 in the HTML, if "true" will be ignore the images.
+`ignoreImg:` default "false" try insert inline image in base64 in HTML, if "true" will be ignore images.
 
 `minifyCSS:` default "false", if "true" will be minified the CSS.
 
