@@ -1,5 +1,5 @@
 {
-  "name": "grunt-critical-assets-html",
+  "name": "@fabioalmeida100/grunt-critical-assets-html",
   "description": "Finds all the css/js/image links and put inline in the HTML",
   "version": "3.0.0",
   "homepage": "https://github.com/fabioalmeida100/grunt-critical-assets-html.git",
